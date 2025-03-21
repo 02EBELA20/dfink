@@ -1,0 +1,323 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url('img/night-sky.jpg') no-repeat center center fixed; /* ღამის ცის ფონი */
+  background-size: cover;
+  color: white;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ჰედერი */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: auto;
+  background: rgba(12, 30, 64, 0.95);
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.head-logo {
+  transform: translateX(5%);
+  width: 200px;
+  margin-right: 88%;
+}
+
+/* ნავიგაციის კონტეინერი */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ნავიგაციის მენიუ */
+.nav-head {
+  margin-left: 25%;
+}
+
+nav ul {
+  margin-top: 8%;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: rgb(248, 239, 2);
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.3s;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background: #ffcc00;
+  color: #0c1e40;
+  box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.7);
+}
+
+/* Dropdown მენიუ */
+.nav-head .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-head .dropbtn {
+  /* უკვე გაქვთ სტილი "Games"-ისთვის, მაგრამ თუ გჭირდებათ დამატებითი სტილი, აქ შეგიძლიათ დაამატოთ */
+  transition: background-color 0.3s;
+}
+
+.nav-head .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0c1e40;
+  min-width: 200px;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+  z-index: 1;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-head .dropdown-content li {
+  display: block;
+}
+
+.nav-head .dropdown-content a {
+  color: #ffcc00;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.nav-head .dropdown-content a:hover {
+  background-color: #ffcc00;
+  color: #0c1e40;
+}
+
+.nav-head .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+/* მოდალური ფანჯარა */
+.setup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #0c1e40;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  color: #ffd700;
+}
+
+.modal-content p {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ffd700;
+  background: #142850;
+  color: white;
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.modal-content button:hover {
+  background-color: #ffd700;
+  color: #0c1e40;
+}
+
+/* მოთამაშეების სახელების შეყვანის ველები */
+#playerInputs {
+  margin-top: 10px;
+}
+
+#playerInputs input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ffd700;
+  background: #142850;
+  color: white;
+  box-sizing: border-box;
+}
+
+/* თამაშის ინტერფეისი */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10%;
+}
+
+.game-container {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.firework-container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.fireworks {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.star {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url('img/star.png') no-repeat center center;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 0 5px #000;
+  animation: explode 2s ease-out forwards;
+}
+
+@keyframes explode {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.selected-star {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url('img/star.png') no-repeat center center;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 0 5px #000;
+  animation: descend 3s ease-out forwards;
+  z-index: 10;
+}
+
+@keyframes descend {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(400px); }
+}
+
+#selectBtn {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ffd700;
+  color: #1a2a44;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+#selectBtn:hover {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.game-info {
+  margin-top: 20px;
+}
+
+#resultArea {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #ffcc00;
+}
+
+/* ფუტერი */
+footer {
+  background-color: #0c1e40;
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+  margin-top: auto;
+}
+
+/* აპლიკაციის აიქონები */
+.store-icons img {
+  width: 120px;
+  height: 40px;
+  margin: 0 10px;
+}

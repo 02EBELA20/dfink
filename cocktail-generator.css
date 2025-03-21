@@ -1,0 +1,311 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #142850; /* მუქი ლურჯი */
+  color: white;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ჰედერი */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: auto;
+  background: rgba(12, 30, 64, 0.95); /* მუქი ლურჯი გამჭვირვალობით */
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.head-logo {
+  transform: translateX(5%);
+  width: 200px;
+  margin-right: 88%;
+}
+
+
+
+/* ნავიგაციის მენიუ */
+.nav-head {
+  margin-left: 25%;
+}
+
+nav ul {
+  margin-top: 8%;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: rgb(248, 239, 2);
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.3s;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background: #ffcc00;
+  color: #0c1e40;
+  box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.7);
+}
+
+/* Dropdown მენიუ */
+.nav-head .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-head .dropbtn {
+  /* უკვე გაქვთ სტილი "Games"-ისთვის, მაგრამ თუ გჭირდებათ დამატებითი სტილი, აქ შეგიძლიათ დაამატოთ */
+  transition: background-color 0.3s;
+}
+
+.nav-head .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0c1e40;
+  min-width: 200px;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+  z-index: 1;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-head .dropdown-content li {
+  display: block;
+}
+
+.nav-head .dropdown-content a {
+  color: #ffcc00;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.nav-head .dropdown-content a:hover {
+  background-color: #ffcc00;
+  color: #0c1e40;
+}
+
+.nav-head .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+/* მთავარი შინაარსი */
+main {
+  margin-top: 120px; /* ჰედერის ქვეშ */
+  padding: 20px;
+  flex: 1;
+}
+
+.cocktail-generator {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cocktail-generator h1 {
+  font-size: 36px;
+  color: #ffcc00;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+  margin-bottom: 20px;
+}
+
+/* ფილტრები */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.filters input, .filters select {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0c1e40;
+  color: white;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+}
+
+.filters input::placeholder {
+  color: #ccc;
+}
+
+/* კოქტეილების სია */
+.cocktail-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.cocktail-card {
+  background-color: #0c1e40;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.cocktail-card:hover {
+  transform: scale(1.05);
+}
+
+.cocktail-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.cocktail-card h3 {
+  font-size: 20px;
+  margin: 10px;
+  color: #ffcc00;
+}
+
+.cocktail-card p {
+  font-size: 14px;
+  margin: 0 10px 10px;
+  color: #ccc;
+}
+
+/* მოდალი (Pop-up) */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: #142850;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  color: #ffcc00;
+  cursor: pointer;
+}
+
+.modal-content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-content h2 {
+  color: #ffcc00;
+  text-shadow: 0 0 5px rgba(255, 204, 0, 0.7);
+}
+
+.modal-content h3 {
+  color: #ffcc00;
+  margin-top: 20px;
+}
+
+.modal-content p, .modal-content ul, .modal-content ol {
+  color: white;
+  line-height: 1.6;
+}
+
+.modal-content ul, .modal-content ol {
+  padding-left: 20px;
+}
+
+#add-to-favorites {
+  background-color: #ffcc00;
+  color: #0c1e40;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#add-to-favorites:hover {
+  background-color: #e6b800;
+}
+/* "მეტის ნახვა" ღილაკი */
+#load-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  color: #0c1e40;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+  transition: background-color 0.3s;
+}
+
+#load-more:hover {
+  background-color: #e6b800;
+}
+
+
+
+
+
+
+/* ფუტერი */
+footer {
+  background-color: #0c1e40;
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+  margin-top: auto;
+}
+
+.store-icons img {
+  width: 120px;
+  height: 40px;
+  margin: 0 10px;
+}

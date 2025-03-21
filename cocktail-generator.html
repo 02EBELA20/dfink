@@ -4,15 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drink or Drink</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cocktail-generator.css">
 </head>
 <body>
     <header>
-        <img class="head-logo" src="img/main-logo.jpg" alt="logo">
-    </header>
+        <a  href="index.html" class="logo">
+            <img class="head-logo" src="img/main-logo.jpg" alt="logo">
+    </a>
+       
+    <nav class="nav-head">
+        <ul>
+            <li class="dropdown">
+                <a href="#games" class="dropbtn">Games</a>
+                <ul class="dropdown-content">
+                    <li><a href="drinking-questions.html">drinking-questions</a></li>
+                    <li><a href="spin-wheel.html">spin-wheel</a></li>
+                    <li><a href="cocktail-generator.html">cocktail-generator</a></li>
+                    <li><a href="would-you-rather.html">Would You Rather</a></li>
+                    <li><a href="spin-the-bottle.html">Spin the Bottle</a></li>
+                </ul>
+            </li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="faq.html">Membership</a></li>
+        </ul>
+    </nav>
     
-   
+    </header>
 
+    <main>
+        <section class="cocktail-generator">
+            <h1>კოქტეილების გენერატორი</h1>
+    
+            <!-- ფილტრები -->
+            <div class="filters">
+                <input type="text" id="search-bar" placeholder="ძებნა... (მაგ., მოხიტო)">
+                <select id="base-ingredient-filter">
+                    <option value="">ძირითადი ინგრედიენტი</option>
+                    <option value="vodka">არაყი</option>
+                    <option value="rum">რუმი</option>
+                    <option value="tequila">ტეკილა</option>
+                    <option value="gin">ჯინი</option>
+                    <option value="whiskey">ვისკი</option>
+                    <option value="cognac">კონიაკი</option>
+                    <option value="amaretto">ამარეტო</option>
+                    <option value="southern-comfort">Southern Comfort</option>
+                    <option value="aperol">აპეროლი</option>
+                    <option value="non-alcoholic">უალკოჰოლო</option>
+                </select>
+                <select id="difficulty-filter">
+                    <option value="">სირთულე</option>
+                    <option value="easy">მარტივი</option>
+                    <option value="medium">საშუალო</option>
+                    <option value="hard">რთული</option>
+                </select>
+            </div>
+    
+            <!-- კოქტეილების სია -->
+            <div class="cocktail-list" id="cocktail-list">
+                <!-- კოქტეილის ბარათები JavaScript-ით გენერირდება -->
+            </div>
+    
+            <!-- "მეტის ნახვა" ღილაკი -->
+            <button id="load-more" style="display: none;">მეტის ნახვა</button>
+        </section>
+    
+        <!-- მოდალი (Pop-up) რეცეპტისთვის -->
+        <div class="modal" id="cocktail-modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-modal">×</span>
+                <img id="modal-image" src="" alt="Cocktail Image">
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+                <h3>ინგრედიენტები</h3>
+                <ul id="modal-ingredients"></ul>
+                <h3>დამზადების ტექნიკა</h3>
+                <ol id="modal-steps"></ol>
+                <h3>სერვირება</h3>
+                <p id="modal-serving"></p>
+                <button id="add-to-favorites">რჩეულებში დამატება</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ფუტერი -->
     <footer>
         <div class="store-icons">
             <img src="icons/app-store.svg" alt="App Store">
@@ -20,6 +95,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="cocktail-generator.js"></script>
 </body>
 </html>

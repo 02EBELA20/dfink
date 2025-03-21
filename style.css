@@ -8,6 +8,12 @@ body  {
   flex-direction: column;
   min-height: 100vh;
 }
+.back-logo{
+  position: absolute;
+  z-index: -2;
+  height: 100vh;
+  width: 100%;
+}
 .head-logo {
   transform: translateX(5%);
   width: 200px;
@@ -76,6 +82,54 @@ nav ul li a:hover {
   box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.7);
 }
 
+/* Dropdown მენიუ */
+.nav-head .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-head .dropbtn {
+  /* უკვე გაქვთ სტილი "Games"-ისთვის, მაგრამ თუ გჭირდებათ დამატებითი სტილი, აქ შეგიძლიათ დაამატოთ */
+  transition: background-color 0.3s;
+}
+
+.nav-head .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0c1e40;
+  min-width: 200px;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+  z-index: 1;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-head .dropdown-content li {
+  display: block;
+}
+
+.nav-head .dropdown-content a {
+  color: #ffcc00;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.nav-head .dropdown-content a:hover {
+  background-color: #ffcc00;
+  color: #0c1e40;
+}
+
+.nav-head .dropdown:hover .dropdown-content {
+  display: block;
+}
 
 
 /* თამაშების კონტეინერი */

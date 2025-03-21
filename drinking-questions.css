@@ -1,49 +1,54 @@
-/* ძირითადი სტილი */
-body  {
+/* ზოგადი სტილები */
+body {
   font-family: Arial, sans-serif;
   background-color: #142850; /* მუქი ლურჯი */
   color: white;
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   min-height: 100vh;
-}
-
-/* ლოგოს სტილი */
-.head-logo {
-  width: 200px;
-  margin-left: 20px;
-  cursor: pointer;
 }
 
 /* ჰედერი */
 header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100%;
-  height: 70px;
-  background: rgba(12, 30, 64, 0.95); /* მუქი ლურჯი გამჭვირვალე */
+  height: auto;
+  background: rgba(12, 30, 64, 0.95); /* მუქი ლურჯი გამჭვირვალობით */
+  padding: 10px 0;
   z-index: 1000;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.head-logo {
+  transform: translateX(5%);
+  width: 200px;
+  margin-right: 88%;
+}
+
+/* ნავიგაციის კონტეინერი */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 0 20px;
 }
 
 /* ნავიგაციის მენიუ */
 .nav-head {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
+  margin-left: 25%;
 }
 
 nav ul {
+  margin-top: 8%;
   list-style: none;
   display: flex;
   gap: 20px;
-  padding: 0;
+  margin-left: -11%;
 }
 
 nav ul li {
@@ -54,10 +59,10 @@ nav ul li a {
   text-decoration: none;
   color: rgb(248, 239, 2);
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
+  transition: 0.3s;
   padding: 10px 15px;
   border-radius: 5px;
-  transition: 0.3s;
 }
 
 nav ul li a:hover {
@@ -66,69 +71,261 @@ nav ul li a:hover {
   box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.7);
 }
 
-/* თამაშის კონტეინერი */
-#game-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-  margin-top: 100px;
+nav a {
+  color: #ffd700;
+  margin: 0 15px;
+  text-decoration: none;
 }
 
-#card-area {
+
+/* Dropdown მენიუ */
+.nav-head .dropdown {
   position: relative;
-  width: 80%;
-  height: 400px;
-
+  display: inline-block;
 }
 
-/* კარტის დიზაინი */
-.card {
-  width: 150px;
-  height: 200px;
-  background: linear-gradient(135deg, #ff9800, #ffcc80);
-  border-radius: 10px;
+.nav-head .dropbtn {
+  /* უკვე გაქვთ სტილი "Games"-ისთვის, მაგრამ თუ გჭირდებათ დამატებითი სტილი, აქ შეგიძლიათ დაამატოთ */
+  transition: background-color 0.3s;
+}
+
+.nav-head .dropdown-content {
+  display: none;
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
+  background-color: #0c1e40;
+  min-width: 200px;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+  z-index: 1;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-head .dropdown-content li {
+  display: block;
+}
+
+.nav-head .dropdown-content a {
+  color: #ffcc00;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
   font-weight: bold;
-  color: white;
+  transition: background-color 0.3s;
+}
+
+.nav-head .dropdown-content a:hover {
+  background-color: #ffcc00;
+  color: #0c1e40;
+}
+
+.nav-head .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+/* ფილტრის კონტეინერი */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  margin-right: 5%;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #0c1e40;
+  color: #ffd700;
+  border: 2px solid #ffd700;
+  border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* ამორჩეული კარტის ანიმაცია */
-.card.selected {
-  width: 250px;
-  height: 350px;
-  font-size: 24px;
-  background: linear-gradient(135deg, #2979ff, #82b1ff);
-  z-index: 10;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  padding: 10%;
+.filter-btn:hover {
+  background-color: #ffd700;
+  color: #0c1e40;
 }
 
-/* ღილაკის სტილი */
-button {
-  background: #ff1744;
+.filter-btn.active {
+  background-color: #ff4d4d;
   color: white;
-  padding: 15px 30px;
-  font-size: 18px;
-  border: none;
+  border-color: #ff4d4d;
+}
+
+/* მთავარი სექციის სტილები */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 7%; /* ჰედერის სიმაღლის გათვალისწინებით */
+}
+
+.game-container {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 ჰორიზონტალური რიგი */
+  grid-template-rows: repeat(3, auto); /* 3 ვერტიკალური რიგი, 4x3=12 ბარათი */
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.card {
+  width: 120px;
+  height: 180px;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative; /* საჭიროა z-index-ისთვის */
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+  animation: flipWithGlow 0.8s ease-in-out; /* ლამაზი გადმობრუნება */
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
   border-radius: 10px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-button:hover {
-  transform: scale(1.1);
+.card-front {
+  background-image: url('img/card5.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #1a2a44;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.card-back {
+  background-image: url('img/front1.jpg');
+  background-size: cover;
+  background-position: center;
+  color: rgba(255, 255, 255, 0.8); /* თეთრი ფერი 70%-იანი გამჭვირვალეობით */
+  font-weight: bold;
+  border-radius: 10px;
+  transform: rotateY(180deg);
+}
+
+.card.glow {
+  animation: glow 0.5s infinite alternate;
+}
+
+.card.selected {
+  z-index: 100;
+  animation: popOut 1s ease-in-out forwards; /* გადიდება ცენტრში */
+}
+
+@keyframes glow {
+  0% {
+      box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
+      background-color: #ffeb3b; /* ყვითელი ფონი, რათა შავი არ გამოჩნდეს */
+      border-radius: 10px; /* მომრგვალებული კუთხეები */
+  }
+  100% {
+      box-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700, 0 0 50px #ffd700;
+      background-color: #fff176; /* ოდნავ ღია ყვითელი */
+      border-radius: 10px; /* მომრგვალებული კუთხეები */
+  }
+}
+
+@keyframes flipWithGlow {
+  0% {
+      transform: rotateY(0deg);
+      box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+      background-color: #ffd700; /* ყვითელი ფონი გადმობრუნებისას */
+  }
+  50% {
+      transform: rotateY(90deg);
+      box-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700; /* მანათობა გადმობრუნებისას */
+      background-color: #ffeb3b;
+  }
+  100% {
+      transform: rotateY(180deg);
+      box-shadow: 0 0 5px #ff4d4d, 0 0 10px #ff4d4d, 0 0 20px #ff4d4d; /* წითელი მანათობა გახსნის შემდეგ */
+      background-color: #ff4d4d; /* წითელი ფონი, რათა შავი არ გამოჩნდეს */
+  }
+}
+
+@keyframes popOut {
+  0% {
+      transform: translateY(0) scale(1);
+      background-color: #ff4d4d; /* წითელი ფონი, რათა შავი არ გამოჩნდეს */
+      border-radius: 10px; /* მომრგვალებული კუთხეები */
+  }
+  50% {
+      transform: translateY(-20px) scale(1.2); /* ნაზი "გამოვარდნა" ზევით */
+      box-shadow: 0 0 20px #ff4d4d, 0 0 30px #ff4d4d;
+      background-color: #ff4d4d;
+      border-radius: 10px; /* მომრგვალებული კუთხეები */
+  }
+  100% {
+      transform: translate(-50%, -50%) scale(2); /* გადიდება ცენტრში */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      box-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff4d4d;
+      background-color: #ff4d4d;
+      border-radius: 10px; /* მომრგვალებული კუთხეები */
+  }
+}
+
+#pickCardBtn, #resetGameBtn {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ffd700;
+  color: #1a2a44;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 7%;
+
+}
+#pickCardBtn{
+  margin-right: 3%;
+}
+#resetGameBtn{
+  margin-right: 5%;
+}
+#pickCardBtn:hover, #resetGameBtn:hover {
+  background-color: #ff4d4d;
+  color: white;
 }
 
 /* ფუტერი */
@@ -138,7 +335,7 @@ footer {
   padding: 15px 0;
   width: 100%;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
-  margin-top: auto;
+  margin-top: auto; /* ეს ფუტერს ბოლოში აწევს */
 }
 
 /* აპლიკაციის აიქონები */
