@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drink or Drink - Never Have I Ever</title>
-    <link rel="stylesheet" href="spin-wheel.css">
+    <title>Drink or Drink - Guess the Movie by Emoji</title>
+    <link rel="stylesheet" href="movies.css">
 </head>
 <body>
     <header>
@@ -21,7 +21,6 @@
                         <li><a href="cocktail-generator.html">Cocktail Generator</a></li>
                         <li><a href="movies.html">Guess the Movie by Emoji</a></li>
                         <li><a href="spin-the-bottle.html">Spin the Bottle</a></li>
-                        <li><a href="never-have-i-ever.html">Never Have I Ever</a></li>
                     </ul>
                 </li>
                 <li><a href="#about">About</a></li>
@@ -32,30 +31,36 @@
     </header>
 
     <main>
+       
         <div class="container">
-            <h1>Never Have I Ever</h1>
+            <h1>Figure Out the Movie by Emojis
+
+            </h1>
             <button id="startGameBtn">Start Game</button>
             <div id="gameArea" style="display: none;">
-                <div id="turnArea" class="turn-box">
-                    <p id="currentTurn">Click "Next Turn" to start!</p>
+                <div id="emojiArea" class="statement-box">
+                    <p id="currentEmojis">Click "Next Movie" to start!</p>
                 </div>
-                <div id="statementArea" class="statement-box" style="display: none;">
-                    <p id="currentStatement"></p>
+                <div id="answerArea" class="answer-box" style="display: none;">
+                    <p id="correctAnswer"></p>
                 </div>
-                <button id="nextTurnBtn">Next Turn</button>
+                <button id="nextMovieBtn">Next Movie</button>
+                <button id="showAnswerBtn" style="display: none;">Show Answer</button>
                 <button id="backToSetupBtn" style="margin-left: 10px;">Back to Setup</button>
             </div>
 
-            <!-- მოდალური ფანჯარა მოთამაშეებისთვის -->
+            <!-- მოდალური ფანჯარა სირთულის დონისთვის -->
             <div id="setupModal" class="setup-modal" style="display: none;">
                 <div class="modal-content">
                     <h2>Setup Your Game</h2>
-                    <p>Enter the names of the players (at least 2):</p>
-                    <div id="playerInputs">
-                        <input type="text" placeholder="Player 1" class="playerName">
-                        <input type="text" placeholder="Player 2" class="playerName">
+                    <p>Choose the difficulty level:</p>
+                    <div id="difficultyInputs">
+                        <select id="difficultySelect">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
                     </div>
-                    <button id="addPlayerBtn">Add Player</button>
                     <button id="startPlayingBtn">Start Playing</button>
                     <button id="cancelBtn">Cancel</button>
                 </div>
@@ -70,7 +75,6 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="spin-wheel.js"></script>
+    <script src="movies.js"></script>
 </body>
 </html>
